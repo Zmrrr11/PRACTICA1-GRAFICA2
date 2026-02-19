@@ -1,1 +1,9 @@
-<p>imagen-clasica works!</p>
+<div class="titulo"> 
+    <h4 class="textoTitulo">PRACTICA IMAGEN CLASICA</h4>
+</div>
+<div class="visorImagen">
+    <img [style.filter]="actualizado()" src="https://www.freepik.es/fotos-vectores-gratis/paisaje" alt="imagen principal">
+</div>
+<div class="controlador"> 
+    <button (click)="toggleEfecto()">Cambiar Efecto</button>
+</div>
