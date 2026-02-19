@@ -7,9 +7,11 @@ import { Component, signal,computed, Signal } from '@angular/core';
   styleUrl: './imagen-clasica.css',
 })
 export class ImagenClasicaComponent {
+
   clasico = signal<boolean>(false);
-  brillo = computed(() => this.clasico() ? 120 : 100);
-  contraste = computed(() => this.clasico() ? 150 : 100);
+  
+  brillo = computed(() => this.clasico() ? 200 : 100);
+  contraste = computed(() => this.clasico() ? 200 : 100);
   gris = computed(() => this.clasico() ? 100 : 0);
 
   actualizado = computed(() => {

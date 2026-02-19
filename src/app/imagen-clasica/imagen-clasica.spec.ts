@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ImagenClasica } from './imagen-clasica';
+import { ImagenClasicaComponent } from './imagen-clasica';
 
-describe('ImagenClasica', () => {
-  let component: ImagenClasica;
-  let fixture: ComponentFixture<ImagenClasica>;
+describe('ImagenClasicaComponent', () => {
+  let component: ImagenClasicaComponent;
+  let fixture: ComponentFixture<ImagenClasicaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ImagenClasica]
+      imports: [ImagenClasicaComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ImagenClasica);
+    fixture = TestBed.createComponent(ImagenClasicaComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
