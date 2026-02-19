@@ -1,4 +1,4 @@
-import { Component, signal,computed, Signal } from '@angular/core';
+import { Component, signal, computed, Signal, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-imagen-clasica',
@@ -8,17 +8,23 @@ import { Component, signal,computed, Signal } from '@angular/core';
 })
 export class ImagenClasicaComponent {
 
-  clasico = signal<boolean>(false);
-  
-  brillo = computed(() => this.clasico() ? 200 : 100);
-  contraste = computed(() => this.clasico() ? 200 : 100);
-  gris = computed(() => this.clasico() ? 100 : 0);
+  brillo: WritableSignal<number> = signal(100);
+  contraste: WritableSignal<number> = signal(100);
+  gris: WritableSignal<number> = signal(0);
 
-  actualizado = computed(() => {
+  actualizado: Signal<string> = computed(() => {
     return `brightness(${this.brillo()}%) contrast(${this.contraste()}%) grayscale(${this.gris()}%)`;
   });
+
   toggleEfecto(): void {
-    this.clasico.update(estado => !estado);
+    if (this.gris() === 0) {
+      this.gris.set(100);
+      this.brillo.set(200);
+      this.contraste.set(200);
+    } else {
+      this.gris.set(0);
+      this.brillo.set(100);
+      this.contraste.set(100);
+    }
   }
 }
-
